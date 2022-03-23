@@ -1,0 +1,102 @@
+TCP
+Transport control Protocol
+
+common tcp ports
+
+Telnet 23  LOGIN
+SSH 22  SECURE LOGIN
+HTTP 80
+HTTPs 443  MORE SECURED
+SMTP 25  MAIL
+IMAP 143/220/993  MAIL Retrieval
+POP 109/110  mail
+DNS 53  domain name
+FTP 21   file tranfer
+
+
+Application protocol
+
+set rules that all parties follow.
+
+
+IETF internet engg. task force.
+Requests for comments (RFCs)
+
+
+socket1 process socket2
+tranfer   data    received
+
+
+
+URLLIB
+
+since http is so common we have library that does all socket work for us and makes webpages looks like file.
+import urllib.request , urllib.parse, urllib.error
+
+
+
+Socket Library Hints
+
+Review the socket library documentation here
+
+Https://docs.python.org/2/library/socket.html
+import socket: Enhances your script with socket communication capabilities. This line needs to be at
+the top of your script to make sure it can be used.
+
+Get Hostname
+
+import socket
+>>> socket.gethostname()
+
+>>> hostname = socket.gethostname()
+
+>>> socket.gethostbyname(hostname)
+
+'172.20.10.4'
+
+>>> socket.gethostbyname('localhost')
+'127.0.0.1'
+
+
+
+Get address family and socket address from string
+
+
+import socket
+import sys
+
+
+try:
+    for res in socket.getaddrinfo(sys.argv[1], None,
+                                  proto=socket.IPPROTO_TCP):
+        family = res[0]
+        sockaddr = res[4]
+        print(family, sockaddr)
+except socket.gaierror:
+    print("Invalid")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://github.com/crazyguitar/pysheeet/blob/master/docs/notes/python-socket.rst
